@@ -102,7 +102,17 @@ var findParentByClassName = function(element, targetClass){
         while (currentParent.className != targetClass && currentParent.className !== null) {
             currentParent = currentParent.parentElement;
         }
+<<<<<<< HEAD
 
+=======
+        if(typeof currentParent !== null ){
+            return currentParrent
+        }else if (currentParent !== element.parentElement) {
+            console.log('No parent found with that class name.')
+        }else{
+            console.log('No parent found.')
+        }
+>>>>>>> 15-HTML-CSS-Music-Player
         return currentParent;
     }
 };
