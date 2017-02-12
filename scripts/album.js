@@ -103,6 +103,7 @@ var findParentByClassName = function(element, targetClass){
             currentParent = currentParent.parentElement;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         if(typeof currentParent !== null ){
@@ -113,6 +114,8 @@ var findParentByClassName = function(element, targetClass){
             console.log('No parent found.')
         }
 >>>>>>> 15-HTML-CSS-Music-Player
+=======
+>>>>>>> 16-jQuery
         return currentParent;
     }
 };
