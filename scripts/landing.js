@@ -20,7 +20,7 @@ $(window).load(function(){
     }
     
     
-    var scrollDistance = $('.sellingPoints').offset().top - $(window).height() + 200;
+var scrollDistance = $('.sellingPoints').offset().top - $(window).height() + 200;
     
     $(window).scroll(function(){
         if ($(window).scrollTop() >= scrollDistance){
