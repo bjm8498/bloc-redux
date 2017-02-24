@@ -2,29 +2,29 @@
 var revealPoint = function() {
     
 
-var animatePoints = function() {
+    var animatePoints = function() {
  
-    $(this).css({
-        opacity: 1,
-        transform: 'scaleX(1) translateY(O)'
-    });
+        $(this).css({
+            opacity: 1,
+            transform: 'scaleX(1) translateY(O)'
+        });
     
-}; 
+    }; 
 
-$.each($('.point'), revealPoint)
+    $.each($('.point'), animatePoints)
 };
 
 $(window).load(function(){
     if($(window).height() > 950){
-        animatePoints();
+        revealPoint();
     }
     
     
-var scrollDistance = $('.sellingPoints').offset().top - $(window).height() + 200;
+    var scrollDistance = $('.selling').offset().top - $(window).height() + 200;
     
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         if ($(window).scrollTop() >= scrollDistance){
-            animatePoints();
+            revealPoint();
         }
     });
 });
