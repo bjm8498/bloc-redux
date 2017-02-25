@@ -1,3 +1,9 @@
+var togglePlayFromPlayerBar = function () {
+    console.log('togglePlayFromPlayerBar');
+    
+}
+
+
 var setSong = function (songNumber) {
     
     if (currentSoundFile) {
@@ -51,14 +57,14 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 	   if (currentlyPlayingSongNumber !== null) {
 		
-		  var currentlyPlayingCell = $('.song-item-number[data-song-number = "' + currentlyPlayingSongNumber + '"]');
+		  var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
 		  currentlyPlayingCell.html(currentlyPlayingSongNumber);
 	   }
 	   if (currentlyPlayingSongNumber !== songNumber) {
 		  
           setSong(songNumber);
 		  $(this).html(pauseButtonTemplate);
-		  currentlyPlayingSongNumber = songNumber;
+		  setSong(songNumber);
           currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
            
           var $volumeFill = $('.volume .fill');
@@ -304,6 +310,7 @@ var play = $('.main-controls .play-pause');
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+var togglePlay = $('.main-controls .play-pause');
 
 
 
@@ -312,6 +319,7 @@ var $nextButton = $('.main-controls .next');
      setupSeekBars();
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
+     togglePlay.click(togglePlayFromPlayerBar);
      }
 
      
