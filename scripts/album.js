@@ -1,5 +1,36 @@
+var setCurrentTimeInPlayerBar = function (currentTime) {
+    var $time = $('.current-time');
+    currentTime.html($time);
+    return currentTime;
+}
+
+var setTotalTimeInPlayerBar = function (totalTime) {
+    var $total = $('.total-time');
+    totalTime.html($total);
+    return totalTime;
+}
+
+var filterTimeCode = function (timeInSeconds) {
+    var seconds = parseFloat(Math.floor(timeInSeconds));
+    return ;
+    
+}
+
+
 var togglePlayFromPlayerBar = function () {
-    console.log('togglePlayFromPlayerBar');
+    var $currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+    
+    if (currentSoundFile.isPaused())  {
+        $currentlyPlayingCell.html(pauseButtonTemplate);
+        $(this).html(playerBarPauseButton);
+        currentSoundFile.play();
+
+    }else if (currentSoundFile.play() === true) {
+        $currentlyPlayingCell.html(playButtonTemplate);
+        $(this).html(playerBarPlayButton)
+        currentSoundFile.pause();
+
+    }
     
 }
 
@@ -64,7 +95,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 		  
           setSong(songNumber);
 		  $(this).html(pauseButtonTemplate);
-		  setSong(songNumber);
+		  
           currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
            
           var $volumeFill = $('.volume .fill');
@@ -153,6 +184,7 @@ var updateSeekBarWhileSongPlays = function () {
             var $seekBar = $('.seek-control .seek-bar');
             
             updateSeekPercentage($seekBar, seekBarFillRatio);
+            setCurrentTimeInPlayerBar(seekBarFillRatio);
         });
     }
 };
@@ -306,11 +338,12 @@ var currentAlbum = null;
 var currentSongFromAlbum =  null;
 var currentSoundFile = null;
 var currentVolume = 80;
-var play = $('.main-controls .play-pause');
+
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 var togglePlay = $('.main-controls .play-pause');
+
 
 
 
@@ -320,6 +353,7 @@ var togglePlay = $('.main-controls .play-pause');
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
      togglePlay.click(togglePlayFromPlayerBar);
+     setSong(1);
      }
 
      
