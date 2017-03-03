@@ -110,12 +110,12 @@ var createSongRow = function(songNumber, songName, songLength) {
 	   } else if (currentlyPlayingSongNumber === songNumber) {
 
         if (currentSoundFile.isPaused() ) {
-          $(this).html(playButtonTemplate);
+          $(this).html(pauseButtonTemplate);
           $('.main-controls .play-pause').html(playerBarPauseButton);
           currentSoundFile.play();
             
         } else {
-		  $(this).html(pauseButtonTemplate);
+		  $(this).html(playButtonTemplate);
           $('.main-controls .play-pause').html(playerBarPlayButton);
           currentSoundFile.pause();
 
@@ -127,7 +127,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      
      var onHover = function (event) {
          var songNumberCell = $(this).find('.song-item-number');
-         var songNumber = songNumberCell.attr('data-song-number');
+         var songNumber = parseInt(songNumberCell.attr('data-song-number'));
          
          if (songNumber !== currentlyPlayingSongNumber) {
              songNumberCell.html(playButtonTemplate);
@@ -136,7 +136,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      
      var offHover = function (event) {
          var songNumberCell = $(this).find('.song-item-number');
-         var songNumber = songNumberCell.attr('data-song-number');
+         var songNumber = parseInt(songNumberCell.attr('data-song-number'));
          
          if (songNumber !== currentlyPlayingSongNumber) {
              songNumberCell.html(songNumber);
@@ -357,7 +357,7 @@ var togglePlay = $('.main-controls .play-pause');
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
      togglePlay.click(togglePlayFromPlayerBar);
-     setSong(1);
+     
      }
 
      
